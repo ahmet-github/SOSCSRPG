@@ -1,9 +1,11 @@
 ﻿using Engine.Models;
+using Engine.Factories;
 
 namespace Engine.ViewModels
 {
     public class GameSession
     {
+        public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Location CurrentLocation { get; set; }
 
@@ -23,6 +25,9 @@ namespace Engine.ViewModels
             CurrentLocation.YCoordinate = -1;
             CurrentLocation.Description = "This is your house";
             CurrentLocation.ImageName = "/Engine;component/Images/Locations/Home.png";
+        
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
         }
 
     }
